@@ -1,0 +1,146 @@
+:root {
+    --dark-blue: #19273d; /* Darker blue for background */
+    --gray: #8b949e; /* Gray for text */
+    --light-gray: #c9d1d9; /* Lighter gray for headings and important text */
+    --green: #34d399; /* Light green for hover effects */
+    --transparent-green: rgba(52, 211, 153, 0.2); /* Transparent green for backgrounds */
+}
+
+body {
+    background-color: var(--dark-blue);
+    color: var(--gray);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    color: var(--light-gray);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-item {
+    color: var(--gray);
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+    color: var(--light-gray);
+    transform: translateX(5px) scale(1.1);
+    font-weight: bold;
+}
+
+.social-icon img {
+    width: 32px;
+    height: 32px;
+    filter: grayscale(100%);
+    border-radius: 50%; /* Circular icons */
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+.section {
+    margin: 3rem 0; /* Increased vertical spacing */
+}
+
+.section-heading {
+    font-size: 2rem; /* Larger headings */
+    color: var(--light-gray);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--gray); /* Underline for headings */
+    padding-bottom: 0.5rem;
+}
+
+.experience-item, .project-item {
+    padding: 1.5rem;
+    border-radius: 12px; /* Medium rounded corners */
+    background-color: transparent;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.experience-item:hover, .project-item:hover {
+    background-color: var(--transparent-green);
+    color: var(--light-gray);
+    z-index: 1; /* Bring hovered item to the front */
+}
+
+.experience-item:hover h3, .project-item:hover h3 {
+    color: var(--green);
+}
+
+.experience-item:not(:hover), .project-item:not(:hover) {
+    opacity: 0.6; /* Fade out non-hovered items */
+}
+
+.project-link, .experience-link {
+    color: var(--light-gray);
+    transition: color 0.3s ease;
+}
+
+.project-link:hover, .experience-link:hover {
+    color: var(--green);
+}
+
+.tech-stack span {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    border-radius: 9999px; /* Fully rounded */
+    background-color: var(--transparent-green);
+    color: var(--green);
+    font-size: 0.875rem;
+    font-weight: bold;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh; /* Full height for header */
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+#profile {
+    margin-bottom: 2rem;
+}
+
+#nav {
+    margin-bottom: 2rem;
+}
+
+#socials {
+    display: flex;
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    #nav {
+        display: none; /* Hide nav on smaller screens */
+    }
+
+    main {
+        margin: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    main {
+        margin-left: 50%; /* Header takes half the screen */
+        padding: 3rem;
+    }
+
+    .section {
+        margin: 4rem 0; /* Increased spacing on larger screens */
+    }
+}

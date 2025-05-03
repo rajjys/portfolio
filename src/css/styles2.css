@@ -1,0 +1,271 @@
+:root {
+    --dark-blue: #0a192f;
+    --darker-blue: #020c1b;
+    --light-gray: #ccd6f6;
+    --medium-gray: #8892b0;
+    --dark-gray: #495670;
+    --green: #64ffda;
+    --transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    /* Font families */
+    --heading-font: 'Playfair Display', 'Segoe UI', Tahoma, serif;
+    --body-font: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* Font weights */
+    --bold: 700;  /* Playfair bold */
+    --medium: 500; /* Poppins medium */
+    --regular: 400; /* Poppins regular */
+    --light: 300; /* Poppins light */
+    /* Font sizes */
+    --heading-size: 2.5rem; /* Playfair heading size */
+    --body-size: 1rem; /* Poppins body size */
+    --small-body-size: 0.875rem; /* Poppins small body size */
+}
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem; /* Adjust based on your header height */
+}
+
+/* For browsers that don't support smooth scrolling */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+body {
+    background-color: var(--darker-blue);
+    color: var(--medium-gray);
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--body-font);
+    font-weight: 400; /* Poppins regular */
+    line-height: 1.6;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Header Styles */
+header {
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--dark-blue);
+}
+
+/* Apply to all headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    font-weight: var(--bold); /* Playfair's bold weight */
+}
+a {
+    color: var(--light-gray);
+    text-decoration: none;
+    transition: var(--transition);
+    border-bottom: 1px solid transparent;
+}
+
+a:hover {
+    color: var(--green);
+    border-bottom-color: var(--green);
+}
+.profile h1 {
+    color: var(--light-gray);
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.profile h2 {
+    color: var(--medium-gray);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.profile-description {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Navigation */
+.main-nav {
+    margin: 2rem 0;
+}
+
+.nav-link {
+    color: var(--medium-gray);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: var(--transition);
+    font-size: 1.1rem;
+}
+
+.nav-link:hover {
+    color: var(--green);
+    transform: translateX(10px);
+    font-weight: 500;
+    border-bottom-color:transparent;
+}
+.nav-link.active {
+    color: var(--green) !important;
+    transform: translateX(10px);
+    font-weight: 500;
+}
+/* Social Icons */
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem 0;
+}
+
+.social-icon {
+    width: 28px;
+    height: 28px;
+    transition: var(--transition);
+    filter: brightness(0.8);
+}
+
+.social-icon:hover {
+    filter: brightness(1);
+    transform: translateY(-3px);
+}
+
+/* Main Content */
+main {
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+.section {
+    margin: 4rem 0;
+    scroll-margin-top: 2rem;
+}
+
+.section-heading {
+    color: var(--light-gray);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+/* Experience & Project Items */
+.experience-item,
+.project-item {
+    background: rgba(17, 34, 64, 0.3);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    transition: var(--transition);
+}
+
+.experience-item:hover,
+.project-item:hover {
+    background: rgba(17, 34, 64, 0.7);
+    transform: translateY(-3px);
+}
+
+.experience-title,
+.project-title {
+    color: var(--light-gray);
+    transition: var(--transition);
+}
+
+.experience-item:hover .experience-title,
+.project-item:hover .project-title {
+    color: var(--green);
+}
+
+/* Tech Stack */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.tech-item {
+    background: rgba(100, 255, 218, 0.1);
+    color: var(--green);
+    padding: 0.25rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    border: 1px solid rgba(100, 255, 218, 0.2);
+}
+
+/* Footer */
+.main-footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid rgba(136, 146, 176, 0.2);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    body {
+        display: flex;
+    }
+
+    header {
+        position: fixed;
+        width: 40%;
+        height: 85vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 4rem;
+        text-align: left;
+        margin-bottom: 15rem;
+    }
+
+    main {
+        margin-left: 45%;
+        padding: 4rem;
+        max-width: none;
+        width: 60%;
+    }
+
+    .socials {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 767px) {
+    .main-nav {
+        display: none;
+    }
+
+    .section {
+        margin: 3rem 0;
+    }
+}
+
+/* Hover Effects */
+.experience-item:hover ~ .experience-item,
+.experience-item:has(+ :hover),
+.project-item:hover ~ .project-item,
+.project-item:has(+ :hover) {
+    opacity: 0.5;
+}
+
+.experience-item,
+.project-item {
+    transition: var(--transition), opacity 0.3s ease;
+}
+
+.company-link,
+.email-link {
+    color: var(--green);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: var(--transition);
+}
+
+.company-link:hover,
+.email-link:hover {
+    border-bottom-color: var(--green);
+}
+code {
+    font-family: monospace;
+    font-size: 1rem;
+    color: var(--light-gray);
+    font-weight: var(--bold);
+}
