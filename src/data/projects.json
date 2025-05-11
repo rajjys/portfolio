@@ -1,0 +1,26 @@
+[
+    {
+        "title": "cercleSport.org",
+        "link": "https://cerclesport.org",
+        "description": "A web application for game management and performance tracking.",
+        "techStack": ["JavaScript", "NextJS", "ExpressJS", "GraphQL API", "MongoDB", "Tailwind", "Vercel"]
+    },
+    {
+        "title": "Elenem Systems",
+        "link": "https://elenem-systems.com",
+        "description": "A web application for streaming sport events and managing user accounts.",
+        "techStack": ["JavaScript", "NextJS", "NestJS", "AWS", "Tailwind", "WebSocket", "API"]
+    },
+    {
+        "title": "abcdi.org",
+        "link": "https://abcdi.org/",
+        "description": "A portfolio website built for a non-profit organization to showcase its mission, projects, and impact.",
+        "techStack": ["HTML&CSS", "NextJS", "Tailwind", "Vercel", "Material UI", "GraphQL API"]
+    },
+    {
+        "title": "rachidcodes.com V1",
+        "link": "https://rachidcodes.com/",
+        "description": "My Portfolio Website",
+        "techStack": ["HTML","CSS","JavaScript","GraphQL API"]
+    }
+]

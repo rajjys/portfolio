@@ -1,0 +1,33 @@
+[
+    {
+        "title": "Software Engineer",
+        "company": "Mont Gabaon Airlines",
+        "companyLink": "https://montgabaon-airlines.com",
+        "duration": "2024 - Present",
+        "description": ["Developing and maintaining web applications for ticketing, Flight Tracking and Data Management."],
+        "techStack": ["HTML&CSS", "JavaScript", "NextJS", "Tailwind", "NodeJS", "PHP", "PostgreSQL"]
+    },
+    {
+        "title": "Software Engineer",
+        "company": "BBOXX RDC",
+        "companyLink": "https://www.bboxx.com/",
+        "duration": "2022 - 2024",
+        "description": ["Developed software applications for solar energy solutions and smart monitoring systems.", "Worked on web applications for data management and analysis."],
+        "techStack": ["Java", "JavaScript", "Tailwind", "C++", "Python", "MongoDB"]
+    },{
+        "title": "Electronic Engineer",
+        "company": "BBOXX RDC",
+        "companyLink": "https://www.bboxx.com/",
+        "duration": "2020 - 2022",
+        "description": ["Designed and developed electronic systems for renewable energy solutions.", "Worked on embedded systems and IoT projects.", "Collaborated with cross-functional teams to deliver high-quality products."],
+        "techStack": ["Embedded Systems", "IoT", "PCB Design", "Microcontrollers", "C++", "MSP32", "ASM"]
+    },
+    {
+        "title": "IT Manager",
+        "company": "Courage Services Aviation",
+        "companyLink": "https://courageaviation.com",
+        "duration": "2018 - 2020",
+        "description": ["Assisted in the development of software applications for freight management and managed IT infrastructure.","Managed IT infrastructure and provided technical support", "Worked on web applications for data management and analysis"],
+        "techStack": ["Java","JS","HTML&CSS", "PHP", "MySQL"]
+    }
+]
