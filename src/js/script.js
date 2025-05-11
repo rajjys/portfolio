@@ -1,3 +1,4 @@
+///
 document.addEventListener('DOMContentLoaded', () => {
     // Add active class to nav links on scroll
     const sections = document.querySelectorAll('section');

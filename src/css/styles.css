@@ -199,7 +199,7 @@ main {
 }
 
 /* Responsive Design */
-@media (min-width: 768px) {
+@media (min-width: 1000px) {
     body {
         display: flex;
     }
@@ -217,7 +217,7 @@ main {
     }
 
     main {
-        margin-left: 45%;
+        margin-left: 46%;
         padding: 4rem;
         max-width: none;
         width: 60%;
@@ -228,7 +228,7 @@ main {
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 999px) {
     .main-nav {
         display: none;
     }
