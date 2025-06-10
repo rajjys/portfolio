@@ -76,17 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadLanguageBasedContent(currentLang);
     handleLanguageBasedStaticContent(currentLang);
 });
-
-document.getElementById('lang-switcher').addEventListener('change', (event) => {
-    let currentLang = event.target.value;
-    setLanguage(currentLang);
-    //console.log(`Language changed to: ${getLanguage()}`);
-    loadLanguageBasedContent(currentLang);
-    handleLanguageBasedStaticContent(currentLang);
-    // Optionally, you can scroll to the top after changing language
-    window.scrollTo(0, 0);
-});
-
+///
 document.addEventListener('DOMContentLoaded', () => {
     // Add active class to nav links on scroll
     const sections = document.querySelectorAll('section');
@@ -123,6 +113,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+document.getElementById('lang-switcher').addEventListener('change', (event) => {
+    let currentLang = event.target.value;
+    setLanguage(currentLang);
+    //console.log(`Language changed to: ${getLanguage()}`);
+    loadLanguageBasedContent(currentLang);
+    handleLanguageBasedStaticContent(currentLang);
+    // Optionally, you can scroll to the top after changing language
+    window.scrollTo(0, 0);
+});
+
 // Function to load content based on selected language
 async function loadLanguageBasedContent(lang) {
     // Clear existing content
@@ -142,13 +142,20 @@ async function handleLanguageBasedStaticContent(lang) {
     const translations = await response.json();
 
     // Update static elements
-    document.getElementById('about-nav').textContent = translations[lang].about;
-    document.getElementById('experiences-nav').textContent = translations[lang].experiences;
-    document.getElementById('projects-nav').textContent = translations[lang].projects;
-    document.getElementById('contact-nav').textContent = translations[lang].contact;
-    document.getElementById('about-title').textContent = translations[lang].about;
-    document.getElementById('experiences-title').textContent = translations[lang].experiences;
-    document.getElementById('projects-title').textContent = translations[lang].projects;
-    document.getElementById('contacts-title').textContent = translations[lang].contact;
-    document.getElementById('contact-label').textContent = translations[lang].contact_label;
+
+    try {
+        document.getElementById('about-nav').textContent = translations[lang].about;
+        document.getElementById('experiences-nav').textContent = translations[lang].experiences;
+        document.getElementById('projects-nav').textContent = translations[lang].projects;
+        document.getElementById('contact-nav').textContent = translations[lang].contact;
+        document.getElementById('about-title').textContent = translations[lang].about;
+        document.getElementById('experiences-title').textContent = translations[lang].experiences;
+        document.getElementById('projects-title').textContent = translations[lang].projects;
+        document.getElementById('contacts-title').textContent = translations[lang].contact;
+        document.getElementById('contact-label').textContent = translations[lang].contact_label;
+        document.getElementById('profile-title').textContent = translations[lang].profile_title;
+        document.getElementById('profile-description').textContent = translations[lang].profile_description;
+    } catch (error) {
+        
+    }
 }

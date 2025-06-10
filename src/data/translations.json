@@ -1,6 +1,9 @@
 {
     "en": {
         "about": "About Me",
+        "title": "My Portfolio",
+        "profile_title": "Software Engineer",
+        "profile_description": "I build inspiring projects with focus on scalability and real world impact",
         "experiences": "Experiences",
         "all_experiences": "All Experiences",
         "skills": "Skills",
@@ -21,6 +24,9 @@
      },
     "fr": {
         "about": "À propos de moi",
+        "title": "Mon Portfolio",
+        "profile_title": "Ingénieur Logiciel",
+        "profile_description": "Je construis des projets inspirants avec un accent sur la scalabilité et l'impact dans le monde réel",
         "experiences": "Expériences",
         "all_experiences": "Toutes les expériences",
         "skills": "Compétences",
