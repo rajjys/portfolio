@@ -25,10 +25,14 @@
     <link rel="stylesheet" href="src/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <script src="src/js/script.js" defer></script>
+    <script src="src/js/script.js" type="module" defer></script>
 </head>
 <body>
     <header>
+        <select id="lang-switcher" hidden>
+            <option data-lang="fr" class="lang-button active" value="fr">Français</option>
+            <option data-lang="en" class="lang-button" value="en">English</option>
+        </select>
         <div class="profile">
             <h1>Idy Rachid Jonathan</h1>
             <h2>Software Engineer</h2>
@@ -76,7 +80,8 @@
         </section>
         <footer class="main-footer">
             <p class="footer-text">&copy; 2025 - Rachid Codes</p>
-            <div class="footer-note">Coded in plain <code>HTML</code>, <code>CSS</code> and <code>JavaScript</code> using <code>Visual Studio</code>.</div>
+            <div class="footer-note">Coded in plain <code>HTML</code>, <code>CSS</code> and <code>JavaScript</code> for <strong>Speed</strong>.</div>
+            <div class="footer-note">Data stored in <a href="https://hygraph.com">Hygraph</a> CMS for <strong>Scalability</strong></div>
             <div><code>Playfair Display</code> Typeface for Headings and <code>Poppins</code> for default. Hosted on Vercel.</div>
             <div>Check it out at my <code><a href="https://github.com/rajjys/portfolio">Github</a></code> and Leave me a Star!</div>
         </footer>

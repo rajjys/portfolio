@@ -66,6 +66,10 @@ a:hover {
     color: var(--green);
     border-bottom-color: var(--green);
 }
+
+strong {
+    color: var(--light-gray);
+}
 .profile h1 {
     color: var(--light-gray);
     font-size: 2.8rem;

@@ -1,4 +1,8 @@
 ///
+
+import { fetchAbout } from "./hygraph/fetchAbout.js";
+import { getLanguage, setLanguage } from "./utils/lang-utils.js";
+
 // Function to fetch and render experiences
 async function loadExperiences() {
     const response = await fetch('src/data/experiences.json');
@@ -42,22 +46,36 @@ async function loadProjects() {
         container.appendChild(projectDiv);
     });
 }
-async function loadAbout() {
-    const response = await fetch('src/data/about.json');
-    const about = await response.json();
+async function loadAbout(locale) {
+    try {
+    const about = await fetchAbout(locale);
+    //console.log(about)
     const container = document.getElementById('about-container');
         // Add the paragraphs
-        about.paragraphs.forEach(paragraph => {
             const p = document.createElement('p');
-            p.innerHTML = paragraph; // Use innerHTML to render links
+            p.innerHTML = about.bio.html; // Use innerHTML to render links
             p.classList.add('about-paragraph');
             container.appendChild(p);
-        });
+        
+    } catch (error) {
+        console.error('Error loading about data:', error);
+        // Optionally, you can display an error message in the UI
+        const container = document.getElementById('about-container');
+        container.innerHTML = '<p>Error loading about information. Please try again later.</p>';
+        return;
+    }
+    
     
 }
 // Load data on page load
 document.addEventListener('DOMContentLoaded', () => {
-    loadAbout();
+    const currentLang = getLanguage();
+    // Set initial language switcher state
+    const langSwitcher = document.getElementById('lang-switcher'); // Your language toggle
+    if (langSwitcher) {
+        langSwitcher.value = currentLang; // Set dropdown value
+    }
+    loadAbout(currentLang);
     loadExperiences();
     loadProjects();
 });
@@ -96,4 +114,9 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+});
+
+document.getElementById('lang-switcher').addEventListener('change', (event) => {
+    setLanguage(event.target.value);
+    console.log(`Language changed to: ${getLanguage()}`);
 });
