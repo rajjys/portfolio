@@ -64,8 +64,6 @@ async function loadAbout(locale) {
         container.innerHTML = '<p>Error loading about information. Please try again later.</p>';
         return;
     }
-    
-    
 }
 // Load data on page load
 document.addEventListener('DOMContentLoaded', () => {
@@ -75,9 +73,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (langSwitcher) {
         langSwitcher.value = currentLang; // Set dropdown value
     }
-    loadAbout(currentLang);
-    loadExperiences();
-    loadProjects();
+    loadLanguageBasedContent(currentLang);
+    handleLanguageBasedStaticContent(currentLang);
+});
+
+document.getElementById('lang-switcher').addEventListener('change', (event) => {
+    let currentLang = event.target.value;
+    setLanguage(currentLang);
+    //console.log(`Language changed to: ${getLanguage()}`);
+    loadLanguageBasedContent(currentLang);
+    handleLanguageBasedStaticContent(currentLang);
+    // Optionally, you can scroll to the top after changing language
+    window.scrollTo(0, 0);
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -116,7 +123,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-document.getElementById('lang-switcher').addEventListener('change', (event) => {
-    setLanguage(event.target.value);
-    console.log(`Language changed to: ${getLanguage()}`);
-});
+// Function to load content based on selected language
+async function loadLanguageBasedContent(lang) {
+    // Clear existing content
+    document.getElementById('about-container').innerHTML = '';
+    document.getElementById('experiences-container').innerHTML = '';
+    document.getElementById('projects-container').innerHTML = '';
+
+    // Load new content
+    await loadAbout(lang);
+    await loadExperiences();
+    await loadProjects();
+}
+// Function to handle static content on language change
+async function handleLanguageBasedStaticContent(lang) {
+    // Load static content based on language
+    const response = await fetch('src/data/translations.json');
+    const translations = await response.json();
+
+    // Update static elements
+    document.getElementById('about-nav').textContent = translations[lang].about;
+    document.getElementById('experiences-nav').textContent = translations[lang].experiences;
+    document.getElementById('projects-nav').textContent = translations[lang].projects;
+    document.getElementById('contact-nav').textContent = translations[lang].contact;
+    document.getElementById('about-title').textContent = translations[lang].about;
+    document.getElementById('experiences-title').textContent = translations[lang].experiences;
+    document.getElementById('projects-title').textContent = translations[lang].projects;
+    document.getElementById('contacts-title').textContent = translations[lang].contact;
+    document.getElementById('contact-label').textContent = translations[lang].contact_label;
+}

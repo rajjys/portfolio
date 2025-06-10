@@ -40,7 +40,7 @@ export async function fetchAbout(locale = "fr") { // locale is now a parameter
         }
 
         const data = await response.json();
-        console.log("Fetched About Data:", data);
+        //console.log("Fetched About Data:", data);
 
         // Check if data.data.abouts exists and has elements
         if (data.data && data.data.abouts && data.data.abouts.length > 0) {

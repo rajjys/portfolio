@@ -1,0 +1,42 @@
+{
+    "en": {
+        "about": "About Me",
+        "experiences": "Experiences",
+        "all_experiences": "All Experiences",
+        "skills": "Skills",
+        "all_skills": "All Skills",
+        "education": "Education",
+        "all_education": "All Education",
+        "certifications": "Certifications",
+        "all_certifications": "All Certifications",
+        "languages": "Languages",
+        "all_langauges": "All Languages",
+        "projects": "Projects",
+        "all_projects": "All Projects",
+        "publications": "Publications",
+        "all_publications": "All Publications",
+        "contact": "Contact Me",
+        "blog": "Blog",
+        "contact_label": "Feel free to reach out at "
+     },
+    "fr": {
+        "about": "À propos de moi",
+        "experiences": "Expériences",
+        "all_experiences": "Toutes les expériences",
+        "skills": "Compétences",
+        "all_skills": "Toutes les compétences",
+        "education": "Éducation",
+        "all_education": "Toute l'éducation",
+        "certifications": "Certifications",
+        "all_certifications": "Toutes les certifications",
+        "languages": "Langues",
+        "all_langauges": "Toutes les langues",
+        "projects": "Projets",
+        "all_projects": "Tous les projets",
+        "publications": "Publications",
+        "all_publications": "Toutes les publications",
+        "contact": "Contactez-moi",
+        "blog": "Blog",
+        "contact_label": "N'hésitez pas à me contacter à "
+    }
+}

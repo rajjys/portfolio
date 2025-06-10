@@ -29,9 +29,9 @@
 </head>
 <body>
     <header>
-        <select id="lang-switcher" hidden>
-            <option data-lang="fr" class="lang-button active" value="fr">Français</option>
-            <option data-lang="en" class="lang-button" value="en">English</option>
+        <select id="lang-switcher" class="lang-switcher">
+            <option data-lang="fr" class="lang-button" value="fr">&#x1F1EB;&#x1F1F7; French</option>
+            <option data-lang="en" class="lang-button" value="en">&#x1F1EC;&#x1F1E7; English</option>
         </select>
         <div class="profile">
             <h1>Idy Rachid Jonathan</h1>
@@ -40,10 +40,10 @@
         </div>
         <nav class="main-nav">
             <ul>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#experiences" class="nav-link">Experiences</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#about" class="nav-link" id="about-nav"></a></li>
+                <li><a href="#experiences" class="nav-link" id="experiences-nav"></a></li>
+                <li><a href="#projects" class="nav-link" id="projects-nav"></a></li>
+                <li><a href="#contact" class="nav-link" id="contact-nav"></a></li>
             </ul>
         </nav>
         <div class="socials">
@@ -61,22 +61,25 @@
     
     <main>
         <section id="about" class="section">
-            <h2 class="section-heading">About Me</h2>
+            <h2 class="section-heading" id="about-title"></h2>
             <div id="about-container"></div>
         </section>
         <section id="experiences" class="section">
-            <h2 class="section-heading">Experiences</h2>
+            <h2 class="section-heading" id="experiences-title"></h2>
             <div id="experiences-container"></div>
         </section>
 
         <section id="projects" class="section">
-            <h2 class="section-heading">Projects</h2>
+            <h2 class="section-heading" id="projects-title"></h2>
             <div id="projects-container"></div>
         </section>
 
         <section id="contact" class="section">
-            <h2 class="section-heading">Contact Me</h2>
-            <p class="contact-text">Feel free to reach out at <a href="mailto:rajjysrachid@gmail.com" class="email-link">rajjysrachid@gmail.com</a></p>
+            <h2 class="section-heading" id="contacts-title"></h2>
+            <p class="contact-text" id="contact-text">
+                <span class="contact-label" id="contact-label"></span>
+                <a href="mailto:rajjysrachid@gmail.com" class="email-link">rajjysrachid@gmail.com</a>
+            </p>
         </section>
         <footer class="main-footer">
             <p class="footer-text">&copy; 2025 - Rachid Codes</p>
