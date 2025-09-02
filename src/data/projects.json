@@ -1,26 +1,26 @@
 [
     {
-        "title": "cercleSport.org",
+        "title": "CercleSport",
         "link": "https://cerclesport.org",
-        "description": "A web application for game management and performance tracking.",
-        "techStack": ["JavaScript", "NextJS", "ExpressJS", "GraphQL API", "MongoDB", "Tailwind", "Vercel"]
+        "description": "Web application for game management and performance tracking.",
+        "techStack": ["JavaScript", "NextJS", "GraphQL API", "MongoDB", "Tailwind", "Vercel"]
     },
     {
-        "title": "Elenem Systems",
-        "link": "https://elenem-systems.com",
-        "description": "A web application for streaming sport events and managing user accounts.",
-        "techStack": ["JavaScript", "NextJS", "NestJS", "AWS", "Tailwind", "WebSocket", "API"]
+        "title": "Elenem",
+        "link": "https://elenem.site",
+        "description": "Sport Leagues management SAAS platform and Engine. Allow Sport Leagues to deploy and manage website in minutes.",
+        "techStack": ["NextJS", "NestJS", "Cloud", "WebSocket", "API", "System Design", "Postgres"]
     },
     {
         "title": "abcdi.org",
         "link": "https://abcdi.org/",
-        "description": "A portfolio website built for a non-profit organization to showcase its mission, projects, and impact.",
+        "description": "Non-profit organisation's website to showcase its mission, projects, and impact.",
         "techStack": ["HTML&CSS", "NextJS", "Tailwind", "Vercel", "Material UI", "GraphQL API"]
     },
     {
         "title": "rachidcodes.com V1",
         "link": "https://rachidcodes.com/",
         "description": "My Portfolio Website",
-        "techStack": ["HTML","CSS","JavaScript","GraphQL API"]
+        "techStack": ["HTML","CSS","JavaScript","GraphQL API", "SEO"]
     }
 ]

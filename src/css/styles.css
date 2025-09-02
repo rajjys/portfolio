@@ -316,3 +316,18 @@ code {
     color: var(--light-gray);
     font-weight: var(--bold);
 }
+
+.cv-button {
+  background: var(--green);
+  color: var(--dark-blue);
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  transition: var(--transition);
+}
+
+.cv-button:hover {
+  background: transparent;
+  color: var(--green);
+  border: 1px solid var(--green);
+}

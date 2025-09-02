@@ -3,6 +3,25 @@
 import { fetchAbout } from "./hygraph/fetchAbout.js";
 import { getLanguage, setLanguage } from "./utils/lang-utils.js";
 
+async function loadAboutContent(locale) {
+    try {
+    const about = await fetchAbout(locale);
+    //console.log(about)
+    const container = document.getElementById('about-container');
+    // Add the paragraphs
+    const p = document.createElement('p');
+    p.innerHTML = about.bio.html; // Use innerHTML to render links
+    p.classList.add('about-paragraph');
+    container.appendChild(p);
+
+    } catch (error) {
+        console.error('Error loading about data:', error);
+        // Optionally, you can display an error message in the UI
+        const container = document.getElementById('about-container');
+        container.innerHTML = '<p>Error loading about information. Please try again later.</p>';
+        return;
+    }
+}
 // Function to fetch and render experiences
 async function loadExperiences() {
     const response = await fetch('src/data/experiences.json');
@@ -46,25 +65,7 @@ async function loadProjects() {
         container.appendChild(projectDiv);
     });
 }
-async function loadAbout(locale) {
-    try {
-    const about = await fetchAbout(locale);
-    //console.log(about)
-    const container = document.getElementById('about-container');
-        // Add the paragraphs
-            const p = document.createElement('p');
-            p.innerHTML = about.bio.html; // Use innerHTML to render links
-            p.classList.add('about-paragraph');
-            container.appendChild(p);
-        
-    } catch (error) {
-        console.error('Error loading about data:', error);
-        // Optionally, you can display an error message in the UI
-        const container = document.getElementById('about-container');
-        container.innerHTML = '<p>Error loading about information. Please try again later.</p>';
-        return;
-    }
-}
+
 // Load data on page load
 document.addEventListener('DOMContentLoaded', () => {
     const currentLang = getLanguage();
@@ -73,8 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (langSwitcher) {
         langSwitcher.value = currentLang; // Set dropdown value
     }
-    loadLanguageBasedContent(currentLang);
     handleLanguageBasedStaticContent(currentLang);
+    loadLanguageBasedContent(currentLang);
 });
 ///
 document.addEventListener('DOMContentLoaded', () => {
@@ -117,8 +118,10 @@ document.getElementById('lang-switcher').addEventListener('change', (event) => {
     let currentLang = event.target.value;
     setLanguage(currentLang);
     //console.log(`Language changed to: ${getLanguage()}`);
-    loadLanguageBasedContent(currentLang);
-    handleLanguageBasedStaticContent(currentLang);
+    handleLanguageBasedStaticContent(currentLang).then(()=>{
+        loadLanguageBasedContent(currentLang);
+    });
+    
     // Optionally, you can scroll to the top after changing language
     window.scrollTo(0, 0);
 });
@@ -131,7 +134,7 @@ async function loadLanguageBasedContent(lang) {
     document.getElementById('projects-container').innerHTML = '';
 
     // Load new content
-    await loadAbout(lang);
+    await loadAboutContent(lang);
     await loadExperiences();
     await loadProjects();
 }
@@ -149,6 +152,7 @@ async function handleLanguageBasedStaticContent(lang) {
         document.getElementById('projects-nav').textContent = translations[lang].projects;
         document.getElementById('contact-nav').textContent = translations[lang].contact;
         document.getElementById('about-title').textContent = translations[lang].about;
+        document.getElementById('cv-button').textContent = translations[lang].download_cv;
         document.getElementById('experiences-title').textContent = translations[lang].experiences;
         document.getElementById('projects-title').textContent = translations[lang].projects;
         document.getElementById('contacts-title').textContent = translations[lang].contact;

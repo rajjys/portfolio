@@ -20,7 +20,8 @@
         "all_publications": "All Publications",
         "contact": "Contact Me",
         "blog": "Blog",
-        "contact_label": "Feel free to reach out at "
+        "contact_label": "Feel free to reach out at ",
+        "download_cv": "Download CV"
      },
     "fr": {
         "about": "À propos de moi",
@@ -43,6 +44,7 @@
         "all_publications": "Toutes les publications",
         "contact": "Contactez-moi",
         "blog": "Blog",
-        "contact_label": "N'hésitez pas à me contacter à "
+        "contact_label": "N'hésitez pas à me contacter à ",
+        "download_cv": "Télécharger CV"
     }
 }
