@@ -1,165 +1,101 @@
-///
+const DATA = {
+  about: 'src/data/about.json',
+  experiences: 'src/data/experiences.json',
+  caseStudies: 'src/data/case_studies.json'
+};
 
-import { fetchAbout } from "./hygraph/fetchAbout.js";
-import { getLanguage, setLanguage } from "./utils/lang-utils.js";
-
-async function loadAboutContent(locale) {
-    try {
-    const about = await fetchAbout(locale);
-    //console.log(about)
-    const container = document.getElementById('about-container');
-    // Add the paragraphs
-    const p = document.createElement('p');
-    p.innerHTML = about.bio.html; // Use innerHTML to render links
-    p.classList.add('about-paragraph');
-    container.appendChild(p);
-
-    } catch (error) {
-        console.error('Error loading about data:', error);
-        // Optionally, you can display an error message in the UI
-        const container = document.getElementById('about-container');
-        container.innerHTML = '<p>Error loading about information. Please try again later.</p>';
-        return;
-    }
+async function fetchJSON(path) {
+  try {
+    const res = await fetch(path);
+    if (!res.ok) throw new Error(res.status + ' ' + path);
+    return await res.json();
+  } catch (e) {
+    console.error('fetchJSON error', path, e);
+    return null;
+  }
 }
-// Function to fetch and render experiences
-async function loadExperiences() {
-    const response = await fetch('src/data/experiences.json');
-    const experiences = await response.json();
-    const container = document.getElementById('experiences-container');
 
+function setYear() {
+  const el = document.getElementById('year');
+  if (el) el.textContent = new Date().getFullYear();
+}
+
+// Load landing page (/) — fill section containers
+async function loadLanding() {
+  setYear();
+  const about = await fetchJSON(DATA.about);
+  const experiences = await fetchJSON(DATA.experiences) || [];
+  const caseStudies = await fetchJSON(DATA.caseStudies) || [];
+
+  // Fill About
+  const aboutContainer = document.getElementById('about-container');
+  if (aboutContainer) {
+    aboutContainer.innerHTML = '';
+    if (about && Array.isArray(about.paragraphs)) {
+      about.paragraphs.forEach(p => {
+        const el = document.createElement('p');
+        el.className = 'about-paragraph';
+        el.innerHTML = p;
+        aboutContainer.appendChild(el);
+      });
+    }
+  }
+
+  // Fill Experiences
+  const expContainer = document.getElementById('experiences-container');
+  if (expContainer) {
+    expContainer.innerHTML = '';
     experiences.forEach(exp => {
-        const expDiv = document.createElement('div');
-        expDiv.classList.add('experience-item');
-        expDiv.innerHTML = `
-            <h3 class="experience-title">${exp.title}</h3>
-            <a href="${exp.companyLink}" target="_blank" class="company-link">${exp.company}</a>
-            <p class="experience-duration">${exp.duration}</p>
-            <div class="experience-description">
-                ${exp.description.map(desc => `<p>${desc}</p>`).join('')}
-            </div>
-            <div class="tech-stack">
-                ${exp.techStack.map(tech => `<span class="tech-item">${tech}</span>`).join('')}
-            </div>
-        `;
-        container.appendChild(expDiv);
+      const expDiv = document.createElement('div');
+      expDiv.classList.add('experience-item');
+      expDiv.innerHTML = `
+        <h3 class="experience-title">${exp.title}</h3>
+        <a href="${exp.companyLink}" target="_blank" class="company-link">${exp.company}</a>
+        <p class="experience-duration">${exp.duration}</p>
+        <div class="experience-description">
+          ${exp.description.map(desc => `<p>${desc}</p>`).join('')}
+        </div>
+        <div class="tech-stack">
+          ${exp.techStack.map(tech => `<span class="tech-item">${tech}</span>`).join('')}
+        </div>
+      `;
+      expContainer.appendChild(expDiv);
     });
+  }
+
+  // Fill Case Studies (top 3 featured or first 3)
+  const csContainer = document.getElementById('case-studies-container');
+  if (csContainer) {
+    csContainer.innerHTML = '';
+    const top = caseStudies.filter(s => s.featured).slice(0, 3);
+    const shown = top.length ? top : caseStudies.slice(0, 3);
+    shown.forEach(cs => {
+      const item = document.createElement('article');
+      item.className = 'case-item';
+      item.innerHTML = `
+        <a class="case-link" href="/case-study/${cs.id}">
+          <div class="case-image"><img src="${cs.image}" alt="${cs.title}"></div>
+          <div class="case-body">
+            <h3>${cs.title}</h3>
+            <p class="excerpt">${cs.excerpt}</p>
+            <div class="tech">${(cs.techStack || []).map(t => `<span class="tech-item">${t}</span>`).join('')}</div>
+          </div>
+        </a>
+      `;
+      csContainer.appendChild(item);
+    });
+  }
 }
 
-// Function to fetch and render projects
-async function loadProjects() {
-    const response = await fetch('src/data/projects.json');
-    const projects = await response.json();
-    const container = document.getElementById('projects-container');
-
-    projects.forEach(project => {
-        const projectDiv = document.createElement('div');
-        projectDiv.classList.add('project-item');
-        projectDiv.innerHTML = `
-            <h3><a href="${project.link}" target="_blank" class="project-title">${project.title}</a></h3>
-            <p class="project-description">${project.description}</p>
-            <div class="tech-stack">
-                ${project.techStack.map(tech => `<span class="tech-item">${tech}</span>`).join('')}
-            </div>
-        `;
-        container.appendChild(projectDiv);
-    });
-}
-
-// Load data on page load
+// Initialize on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
-    const currentLang = getLanguage();
-    // Set initial language switcher state
-    const langSwitcher = document.getElementById('lang-switcher'); // Your language toggle
-    if (langSwitcher) {
-        langSwitcher.value = currentLang; // Set dropdown value
-    }
-    handleLanguageBasedStaticContent(currentLang);
-    loadLanguageBasedContent(currentLang);
+  setYear();
+  const path = location.pathname.replace(/\/+$/, '');
+  
+  // Only load landing page content on / route
+  if (path === '' || path === '/') {
+    loadLanding();
+  }
+  // For /case-study and /case-study/:id, they should be served as separate static pages
+  // The JS here won't handle them; the server will serve case-study/index.html or case-study/:id/index.html
 });
-///
-document.addEventListener('DOMContentLoaded', () => {
-    // Add active class to nav links on scroll
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                navLinks.forEach(link => {
-                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-                });
-            }
-        });
-    }, { threshold: [0.25, 0.75] });
-
-    sections.forEach(section => observer.observe(section));
-
-    // Fix hover effect for all siblings
-    document.querySelectorAll('.experience-item, .project-item').forEach(item => {
-        item.addEventListener('mouseenter', function() {
-            const parent = this.parentNode;
-            parent.querySelectorAll('.experience-item, .project-item').forEach(sibling => {
-                if (sibling !== this) sibling.style.opacity = '0.5';
-            });
-        });
-
-        item.addEventListener('mouseleave', function() {
-            const parent = this.parentNode;
-            parent.querySelectorAll('.experience-item, .project-item').forEach(sibling => {
-                sibling.style.opacity = '1';
-            });
-        });
-    });
-});
-
-document.getElementById('lang-switcher').addEventListener('change', (event) => {
-    let currentLang = event.target.value;
-    setLanguage(currentLang);
-    //console.log(`Language changed to: ${getLanguage()}`);
-    handleLanguageBasedStaticContent(currentLang).then(()=>{
-        loadLanguageBasedContent(currentLang);
-    });
-    
-    // Optionally, you can scroll to the top after changing language
-    window.scrollTo(0, 0);
-});
-
-// Function to load content based on selected language
-async function loadLanguageBasedContent(lang) {
-    // Clear existing content
-    document.getElementById('about-container').innerHTML = '';
-    document.getElementById('experiences-container').innerHTML = '';
-    document.getElementById('projects-container').innerHTML = '';
-
-    // Load new content
-    await loadAboutContent(lang);
-    await loadExperiences();
-    await loadProjects();
-}
-// Function to handle static content on language change
-async function handleLanguageBasedStaticContent(lang) {
-    // Load static content based on language
-    const response = await fetch('src/data/translations.json');
-    const translations = await response.json();
-
-    // Update static elements
-
-    try {
-        document.getElementById('about-nav').textContent = translations[lang].about;
-        document.getElementById('experiences-nav').textContent = translations[lang].experiences;
-        document.getElementById('projects-nav').textContent = translations[lang].projects;
-        document.getElementById('contact-nav').textContent = translations[lang].contact;
-        document.getElementById('about-title').textContent = translations[lang].about;
-        document.getElementById('cv-button').textContent = translations[lang].download_cv;
-        document.getElementById('experiences-title').textContent = translations[lang].experiences;
-        document.getElementById('projects-title').textContent = translations[lang].projects;
-        document.getElementById('contacts-title').textContent = translations[lang].contact;
-        document.getElementById('contact-label').textContent = translations[lang].contact_label;
-        document.getElementById('profile-title').textContent = translations[lang].profile_title;
-        document.getElementById('profile-description').textContent = translations[lang].profile_description;
-    } catch (error) {
-        
-    }
-}

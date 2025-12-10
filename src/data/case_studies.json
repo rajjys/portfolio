@@ -1,0 +1,59 @@
+[
+  {
+    "id": "elenem",
+    "title": "Elenem — Sports Leagues SaaS",
+    "slug": "elenem",
+    "featured": true,
+    "date": "2024-10-01",
+    "image": "/assets/elenem-image.jpg",
+    "excerpt": "A SaaS platform that helps sport leagues deploy websites, manage games and standings instantly.",
+    "intro": "Elenem is a SaaS product that allows sport leagues and federations to deploy websites, manage games and engage fans quickly.",
+    "problem": [
+      "Many local leagues lack the tools to publish fixtures, results and standings. Creating a production-ready site requires time, tooling and technical staff.",
+      "Leagues needed a way to increase fan engagement and drive revenue without expensive engineering work." 
+    ],
+    "process": [
+      "We interviewed league managers to understand pain points and the minimal data model required (teams, fixtures, results, standings).",
+      "Built a lightweight API and admin panel so non-technical staff could create fixtures and publish results in minutes.",
+      "Iterated on UI and performance, optimizing image delivery and caching for match-heavy pages."
+    ],
+    "solution": [
+      "A modular Next.js frontend with a headless API that lets leagues spin up a site in minutes.",
+      "Realtime updates for scores and a minimal CMS to manage teams and competitions."
+    ],
+    "result": "Improved fan engagement and provided an additional revenue stream for leagues. Early adopters reported increased website visits and easier matchday workflows.",
+    "lessons": [
+      "Start with the smallest useful feature set — publishing fixtures and scores provided the largest immediate value.",
+      "Design for non-technical users first; good UX reduces support overhead."
+    ],
+    "techStack": ["NextJS", "Node.js", "NestJS", "Postgres", "Vercel", "Redis"]
+  },
+  {
+    "id": "lebourgeois",
+    "title": "Le Bourgeois — Travel Agency Platform",
+    "slug": "lebourgeois",
+    "featured": true,
+    "date": "2023-06-15",
+    "image": "/assets/lebourgeois-image.jpg",
+    "excerpt": "A travel platform that aggregates schedules and prices to help travellers in the DRC make informed choices.",
+    "intro": "Le Bourgeois is an intentional travel platform that aggregates airline schedules and fares to help travellers compare and book smartly.",
+    "problem": [
+      "In the DRC region, airlines were not consistently listed on global distribution systems; travellers relied on agents and had poor visibility on prices and schedules.",
+      "The travel agency needed a way to increase online sales and reduce manual enquiries."
+    ],
+    "process": [
+      "Built scrapers and normalizers to gather available schedule and pricing data from multiple sources.",
+      "Created a searchable, filterable frontend and an internal panel for the agency to manage listings and promotions."
+    ],
+    "solution": [
+      "A data pipeline that normalizes fares and schedules and a modern front-end that presents comparisons quickly to travellers.",
+      "Tools for the agency to add promotions and convert enquiries into bookings."
+    ],
+    "result": "The platform became a reference for travellers in the region, improving conversion rates and increasing trust in the agency.",
+    "lessons": [
+      "Reliable data sources and a resilient scraping pipeline are essential when canonical APIs are missing.",
+      "Focus on conversion flows — search to booking must be frictionless."
+    ],
+    "techStack": ["Node.js", "Puppeteer", "Express", "Postgres", "React"]
+  }
+]

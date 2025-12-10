@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study — Jonathan Idy</title>
+    <meta name="description" content="Case study by Jonathan Idy — Software engineer.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://rachidcodes.com/case-study">
+    <link rel="stylesheet" href="/src/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="/src/js/case-detail.js" defer></script>
+</head>
+<body class="no-sidebar">
+    <main class="site-content case-detail-page" role="main">
+        <nav class="case-nav">
+          <a href="/" class="brand">
+                <img id="profile-img" src="/assets/profile.png" alt="Jonathan Idy" />
+                <div class="brand-text">
+                    <h1>Jonathan Idy Rachid</h1>
+                    <p class="sub">Software Engineer — Web & System Design</p>
+                </div>
+          </a>
+          <a href="/" class="back-link">← Home</a> · <a href="/case-study" class="back-link">All case studies</a>
+        </nav>
+        <!-- TEMPLATE FOR CASE DETAIL CONTENT -->
+        <template id="case-detail-template">
+          <article class="case-detail">
+            <header class="case-header">
+              <div class="case-image">
+                <img class="case-hero" alt="">
+              </div>
+              <div class="case-head">
+                <h1 class="case-title"></h1>
+                <p class="intro"></p>
+                <div class="meta date"></div>
+              </div>
+            </header>
+
+            <section class="case-sections">
+              <div class="section problem">
+                <h2>Problem</h2>
+                <div class="problem-content"></div>
+              </div>
+              <div class="section process">
+                <h2>Process</h2>
+                <div class="process-content"></div>
+              </div>
+              <div class="section solution">
+                <h2>Solution</h2>
+                <div class="solution-content"></div>
+              </div>
+              <div class="section result">
+                <h2>Result</h2>
+                <p class="result-content"></p>
+              </div>
+              <div class="section lessons">
+                <h2>Lessons Learned</h2>
+                <div class="lessons-content"></div>
+              </div>
+              <div class="section tech-stack">
+                <h2>Tech Stack</h2>
+                <div class="tech"></div>
+              </div>
+            </section>
+          </article>
+        </template>
+
+        <!-- This is where the filled-in detail will go -->
+        <div id="case-detail-container"></div>
+
+        <footer class="main-footer">
+            <p class="footer-text">&copy; 2025 - Rachid Codes</p>
+            <div class="footer-note">Coded in plain <code>HTML</code>, <code>CSS</code> and <code>JavaScript</code> for <strong>Speed</strong>.</div>
+            <div class="footer-note">Data stored in <a href="https://hygraph.com">Hygraph</a> CMS for <strong>Scalability</strong></div>
+            <div><code>Playfair Display</code> Typeface for Headings and <code>Poppins</code> for default. Hosted on Vercel.</div>
+            <div>Check it out at my <code><a href="https://github.com/rajjys/portfolio">Github</a></code> and Leave me a Star!</div>
+        </footer>
+    </main>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

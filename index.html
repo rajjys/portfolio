@@ -3,95 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Idy Rachid Jonathan - Software Engineer Portfolio</title>
-    <meta name="description" content="Portfolio of Idy Rachid Jonathan, a software engineer specializing in web development, scalable applications, and open-source projects.">
+    <title>Jonathan Idy — Portfolio</title>
+    <meta name="description" content="Jonathan Idy — Software engineer. Case studies and projects.">
     <meta name="keywords" content="Idy Rachid Jonathan, Software Engineer, Web Developer, Portfolio, JavaScript, NextJS, Open Source, RDC, Congo">
     <meta name="author" content="Idy Rachid Jonathan">
     <meta name="robots" content="index, follow">
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Idy Rachid Jonathan - Software Engineer Portfolio">
-    <meta property="og:description" content="Portfolio of Idy Rachid Jonathan, a software engineer specializing in web development, scalable applications, and open-source projects.">
-    <meta property="og:image" content="https://rachidcodes.com/assets/rachidcodes_logo.png">
+    <meta property="og:title" content="Jonathan Idy — Software Engineer Portfolio">
+    <meta property="og:description" content="Jonathan Idy — Software engineer specializing in Next.js, NestJS, Node and System Design.">
+    <meta property="og:image" content="https://rachidcodes.com/assets/profile.png">
     <meta property="og:url" content="https://rachidcodes.com">
     <meta property="og:type" content="website">
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Idy Rachid Jonathan - Software Engineer Portfolio">
-    <meta name="twitter:description" content="Portfolio of Idy Rachid Jonathan, a software engineer specializing in web development, scalable applications, and open-source projects.">
-    <meta name="twitter:image" content="https://rachidcodes.com/assets/rachidcodes_logo.png">
-    <meta name="twitter:site" content="@your_twitter_handle">
-    <!-- -->
+    <meta name="twitter:title" content="Jonathan Idy — Software Engineer Portfolio">
+    <meta name="twitter:description" content="Jonathan Idy — Software engineer specializing in Next.js, NestJS, Node and System Design.">
+    <meta name="twitter:image" content="https://rachidcodes.com/assets/profile.png">
     <link rel="canonical" href="https://rachidcodes.com">
     <link rel="stylesheet" href="src/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <script src="src/js/script.js" type="module" defer></script>
+    <script src="src/js/script.js" defer></script>
 </head>
-<body>
-    <header>
-        <select id="lang-switcher" class="lang-switcher">
-            <option data-lang="fr" class="lang-button" value="fr">&#x1F1EB;&#x1F1F7; French</option>
-            <option data-lang="en" class="lang-button" value="en">&#x1F1EC;&#x1F1E7; English</option>
-        </select>
-        <div class="profile">
-            <h1>Idy Rachid Jonathan</h1>
-            <h2 id="profile-title"></h2>
-            <p class="profile-description" id="profile-description"></p>    
-        </div>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="#about" class="nav-link" id="about-nav"></a></li>
-                <li><a href="#experiences" class="nav-link" id="experiences-nav"></a></li>
-                <li><a href="#projects" class="nav-link" id="projects-nav"></a></li>
-                <li><a href="#contact" class="nav-link" id="contact-nav"></a></li>
-            </ul>
-        </nav>
-        <div class="socials">
-            <a href="https://web.facebook.com/rajjys.rachid" target="_blank" class="social-link">
+<body class="has-sidebar">
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="#" class="brand">
+                <img id="profile-img" src="/assets/profile.png" alt="Jonathan Idy" />
+                <div class="brand-text">
+                    <h1>Jonathan Idy Rachid</h1>
+                    <p class="sub">Software Engineer — Web & System Design</p>
+                </div>
+            </a>
+            <nav class="main-nav" aria-label="Primary navigation">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#case-studies" class="nav-link">Case Studies</a>
+                <a href="#experiences" class="nav-link">Experiences</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="socials">
+                <a href="https://web.facebook.com/rajjys.rachid" target="_blank" class="social-link">
                 <img src="assets/facebook.png" alt="Facebook logo" class="social-icon">
             </a>
             <a href="https://www.linkedin.com/in/idy-rachid-583682120/" target="_blank" class="social-link">
                 <img src="assets/linkedin.png" alt="LinkedIn logo" class="social-icon">
             </a>
-            <a href="https://github.com/rajjys" target="_blank" class="social-link">
+                <a href="https://github.com/rajjys" target="_blank" class="social-link">
                 <img src="assets/github.png" alt="GitHub logo" class="social-icon">
             </a>
-            <a href="https://ap-south-1.graphassets.com/cmbngxqaj0rwn07pjfbhr3i3t/cmf2mofe114oj08popgsk56tg"
-                id="cv-button"
-                target="_blank" 
-                class="cv-button">
-                Download CV
-            </a>
+            </div>
         </div>
     </header>
-    
-    <main>
-        <section id="about" class="section">
-            <h2 class="section-heading" id="about-title"></h2>
-            <div id="about-container"></div>
-        </section>
-        <section id="experiences" class="section">
-            <h2 class="section-heading" id="experiences-title"></h2>
-            <div id="experiences-container"></div>
+
+    <main class="site-content" role="main">
+        <section id="about" class="section about">
+            <h2 class="section-heading">About Me</h2>
+            <div id="about-container" class="section-content"></div>
         </section>
 
-        <section id="projects" class="section">
-            <h2 class="section-heading" id="projects-title"></h2>
-            <div id="projects-container"></div>
+        <section id="case-studies" class="section case-studies">
+            <h2 class="section-heading">Case Studies</h2>
+            <div id="case-studies-container" class="section-content"></div>
+            <p class="see-all"><a href="/case-study" class="cta-link">View all case studies →</a></p>
         </section>
 
-        <section id="contact" class="section">
-            <h2 class="section-heading" id="contacts-title"></h2>
-            <p class="contact-text" id="contact-text">
-                <span class="contact-label" id="contact-label"></span>
-                <a href="mailto:rajjysrachid@gmail.com" class="email-link">rajjysrachid@gmail.com</a>
-            </p>
+        <section id="experiences" class="section experiences">
+            <h2 class="section-heading">Experiences</h2>
+            <div id="experiences-container" class="section-content"></div>
+        </section>
+
+        <section id="contact" class="section contact">
+            <h2 class="section-heading">Contact</h2>
+            <p>Interested in working together? Reach me at <a href="mailto:rajjysrachid@gmail.com">rajjysrachid@gmail.com</a></p>
         </section>
         <footer class="main-footer">
             <p class="footer-text">&copy; 2025 - Rachid Codes</p>
             <div class="footer-note">Coded in plain <code>HTML</code>, <code>CSS</code> and <code>JavaScript</code> for <strong>Speed</strong>.</div>
-            <div class="footer-note">Data stored in <a href="https://hygraph.com">Hygraph</a> CMS for <strong>Scalability</strong></div>
-            <div><code>Playfair Display</code> Typeface for Headings and <code>Poppins</code> for default. Hosted on Vercel.</div>
+            <div><code>Playfair Display</code> Typeface for Headings and <code>Poppins</code> for default. </div>
+            <div>Hosted on Vercel.</div>
             <div>Check it out at my <code><a href="https://github.com/rajjys/portfolio">Github</a></code> and Leave me a Star!</div>
         </footer>
     </main>
