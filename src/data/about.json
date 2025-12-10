@@ -1,9 +1,8 @@
 {
-    "heading": "About Me",
-    "paragraphs": [
-        "Hey. I'm <strong>Jonathan Idy</strong>.<br/>\n\nI am a software Engineer with practical expertise in Next.js, NestJS, Node and System Design. I help startups and businesses deploy web solutions that optimize throughput and automate where it makes sense. I'm business-oriented and make sure the code I deliver justifies the capital invested.",
-        "The latest project I have been working on is <a href=\"https://elenem.site\" target=\"_blank\">https://elenem.site</a> — a SaaS tool that helps sport leagues instantly deploy a website and manage games and standings, creating great value and engagement.",
-        "Another example is <a href=\"https://lebourgeois.cd\" target=\"_blank\">https://lebourgeois.cd</a> — an intentional travel agency platform. In the DRC region, travellers had poor access to airline schedules and pricing; we built a tool to aggregate schedules and prices, significantly improving booking conversions for the agency.",
-        "I enjoy building pragmatic systems with measurable business impact. If you'd like to talk, reach me at <a href=\"mailto:rajjysrachid@gmail.com\">rajjysrachid@gmail.com</a>."
-    ]
+  "heading": "About Me",
+  "paragraphs": [
+    "Hey, I'm <strong>Jonathan Idy</strong>.<br/>\n\nI'm a business-focused full‑stack engineer (Next.js, NestJS, Node.js) who builds automation‑driven platforms that solve real operational problems and deliver measurable business value.",
+    "Recent work includes <a href=\"https://elenem.site\" target=\"_blank\">Elenem</a> — a SaaS for sports leagues that automates game management and standings — and <a href=\"https://lebourgeois.cd\" target=\"_blank\">LeBourgeois</a>, a flight booking platform in the DRC that aggregates airline schedules and fares to boost conversions.",
+    "I design systems where efficiency matters, turning messy workflows into scalable solutions. If you'd like to connect, reach me at <a href=\"mailto:rajjysrachid@gmail.com\">rajjysrachid@gmail.com</a>."
+  ]
 }
